@@ -83,7 +83,10 @@ ROOT_DIR/
 
 ## 快速开始
 
-将数据集放置到`data`路径下，对于问题A，运行`python solutionA/main_lp.py`或者`python solutionA/main_ga.py`，对于问题B，运行`python solutionB/main_lp.py`或者`python solutionB/main_ga.py`，结果保存在`outputs`文件夹中，
+将数据集放置到`data`路径下，对于问题A，运行`python solutionA/main_lp.py`或者`python solutionA/main_ga.py`，对于问题B，运行`python solutionB/main_lp.py`或者`python solutionB/main_ga.py`，结果保存在`outputs`文件夹中。
+
+下图展示了一个原板排版结果，其中红色数字表示产品项id。
+![切割案例](images/0_0.9101.jpg)
 
 ## 致谢
 

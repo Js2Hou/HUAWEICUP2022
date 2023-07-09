@@ -15,7 +15,7 @@
 import os
 import numpy as np
 
-from optimization import order_assemble_solver
+from optimization import order_assemble_solver, stack2stripe_solver, stripe2ban_solver
 
 
 def assemble_orders(orders, n_orders, wsize):
@@ -201,7 +201,7 @@ def stack2stride_ga(stacks, constH, constW, wsize):
         x_ = sorted_stacks[idx_stacks_window_, 3:5].astype(np.float32)
 
         # res: (1, N1), 仅包括0或者1, 1表示被用掉
-        res = ga_solver1(x_).flatten()
+        res = stack2stripe_solver(x_).flatten()
         res = np.where(res.flatten() != 0)[0]  # 窗口内相对索引
 
         # 更新rest_idx_stacks
@@ -256,7 +256,7 @@ def stride2ban_ga(strides, constH, constW, wsize):
         x_ = sorted_strides[idx_stacks_window_, 3:5].astype(np.float32)
 
         # res: (1, N2), 仅包括0或者1, 1表示被用掉
-        res = ga_solver2(x_).flatten()
+        res = stripe2ban_solver(x_).flatten()
         res = np.where(res.flatten() != 0)[0]  # 窗口内相对索引
 
         # 更新rest_idx_stacks
